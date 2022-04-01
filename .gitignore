@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# jupyter notebook stuff
+.ipynb_checkpoints/
+
+# a notebook i use for development
+dev.ipynb
+
+# ignore image data
+MFGTMP_220317120003/
