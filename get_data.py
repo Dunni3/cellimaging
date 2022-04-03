@@ -7,6 +7,32 @@ import pandas as pd
 from PIL import Image
 
 
+def stretch_img(img_arr: np.array) -> np.array:
+    '''Contrasts stretches the input img_arr and returns an updated img_arr
+    
+    Args:
+        img_arr: np.array of the original image that needs to be contrast stretched
+    '''
+    
+    max_val = np.percentile(img_arr, 99.9999)
+    min_val = np.min(img_arr)
+
+    new_img_arr = np.zeros(shape=img_arr.shape)
+    
+    for row in range(len(img_arr)):
+        for col in range(len(img_arr[row])):
+            pix = img_arr[row][col]
+            new_pix = ((pix - min_val) / (max_val - min_val)) * 255
+
+            if new_pix >= 255:
+                new_pix = 254
+            if new_pix < 0:
+                new_pix = 0
+            
+            new_img_arr[row][col] = new_pix
+
+    return new_img_arr
+
 def walk(path) -> Path:
     """Generator that walks down a directory and yields Path objects pointing to .TIF files.""" 
     for p in Path(path).iterdir(): 
