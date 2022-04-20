@@ -79,11 +79,11 @@ def file_to_nparray(filepath: Union[Path, str]) -> np.array:
     img_array = np.asarray(img)
     return img_array
 
-def make_images_df(data_dir='MFGTMP_220317120003', output_file='images_df.csv') -> None:
+def make_images_df(data_dir='MFGTMP_220411120001', output_file='images_df.csv') -> None:
     """Finds all image files in the data directory, parses their filenames, and compiles them into a dataframe.
 
     Args:
-        data_dir (str, optional): filepath of directory holding image files. Defaults to 'MFGTMP_220317120003'.
+        data_dir (str, optional): filepath of directory holding image files. Defaults to 'MFGTMP_220411120001'.
         output_file (str, optional): file to write dataframe to. will be written as a csv. Defaults to 'images_df.csv'.
     """
     rows = []
@@ -100,5 +100,5 @@ def load_images_df(csv_file='images_df.csv'):
 
 
 if __name__ == "__main__":
-    test_str = 'MFGTMP_220317120003/MFGTMP_220317120003_A01f00d0.TIF'
+    test_str = 'MFGTMP_220411120001/MFGTMP_220411120001_A01f00d0.TIF'
     test_path = Path(test_str)
